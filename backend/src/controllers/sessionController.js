@@ -15,7 +15,7 @@ export async function createSession(req,res) {
         const callId = `session_${Date.now()}_${Math.random().toString(36).substring(7)}`
 
         // create session in db
-        const session = await Session.create({ proble,difficulty,host:userId, callId });
+        const session = await Session.create({ problem,difficulty,host:userId, callId });
 
         // create a stream video-call
         await streamClient.video.call("default", callId).getOrCreate({
